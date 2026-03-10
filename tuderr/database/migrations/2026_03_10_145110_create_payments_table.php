@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('payment_date');
             $table->string('status', 20)->default(\App\PaymentStatus::PENDING->value);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('enrollment_expiry_date')->nullable();
             $table->integer('course_progress')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('remarks')->nullable();
             $table->string('status', 20)->default(\App\ApproveStatus::APPROVED->value);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

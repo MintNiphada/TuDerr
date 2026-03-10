@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('file_path');
             $table->unsignedBigInteger('lesson_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('section_id');
             $table->integer('order_index');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

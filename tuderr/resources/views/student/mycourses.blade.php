@@ -1,109 +1,96 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>My Courses</title>
+    <title>คอร์สของฉัน</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+        }
 
-body{
-font-family:'Kanit', sans-serif;
-background:#f4f6f9;
-margin:0;
-}
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 40px 0;
+        }
 
-.container{
-width:90%;
-margin:auto;
-padding:40px 0;
-}
+        .courses {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
 
-.courses{
-display:flex;
-gap:25px;
-flex-wrap:wrap;
-}
+        .card {
+            width: 300px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
 
-.card{
-width:300px;
-background:white;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 3px 8px rgba(0,0,0,0.15);
-}
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
 
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
+        .card-body {
+            padding: 20px;
+        }
 
-.card-body{
-padding:20px;
-}
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-.title{
-font-size:18px;
-font-weight:bold;
-margin-bottom:15px;
-}
-
-.btn{
-display:block;
-text-align:center;
-background:#0a0a23;
-color:white;
-padding:12px;
-border-radius:8px;
-text-decoration:none;
-}
-
-</style>
+        .btn {
+            display: block;
+            text-align: center;
+            background: #0a0a23;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+    </style>
 
 </head>
 
 <body>
 
-@include('components.navbar')
+    @include('components.navbar')
 
-<div class="container">
+    <div class="container">
 
-<h1>My Courses</h1>
+        <h1>คอร์สของฉัน</h1>
+        <div class="courses">
+            @foreach($courses as $course)
 
-<div class="courses">
+            <div class="card">
 
-<div class="card">
+                <img src="{{ asset('course_images/' . $course->course->photo) }}" alt="Course Image">
 
-<img src="/course_images/laravel.jpg">
+                <div class="card-body">
 
-<div class="card-body">
+                    <div class="title">{{ $course->course->title }}</div>
 
-<div class="title">Laravel Web Development</div>
+                    <a href="{{ route('student.mycourses.show', $course->course->id) }}" class="btn">Continue Learning</a>
 
-<a href="#" class="btn">Continue Learning</a>
+                </div>
 
-</div>
+            </div>
+            @endforeach
 
-</div>
+        </div>
 
-<div class="card">
-
-<img src="/course_images/java.jpg">
-
-<div class="card-body">
-
-<div class="title">Java Programming</div>
-
-<a href="#" class="btn">Continue Learning</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </body>
+
 </html>

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>รายละเอียดคอร์สของฉัน</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -119,7 +120,6 @@
     </style>
 
 </head>
-
 <body>
 
     @include('components.navbar')
@@ -158,20 +158,6 @@
                 <div class="price">
                     {{ $course->price }} บาท
                 </div>
-                @if($payment)
-                <div class="buy-section">
-                    <a class="btn" href="{{ route('student.mycourses.show', $course->id) }}">
-                        <little>คุณได้ซื้อคอร์สนี้แล้ว</title>
-                        ไปที่คอร์สของฉัน
-                    </a>
-                </div>
-                @else
-                <div class="buy-section">
-                    <a class="btn" href="{{ route('payment.buy', $course->id) }}">
-                        ซื้อคอร์สนี้
-                    </a>
-                </div>
-                @endif
 
     </div>
 

@@ -19,3 +19,5 @@ check: composer -v
 9. npm install
 10. npm run dev
 11. php artisan serve แล้วลองเปิดเว็บ http://127.0.0.1:8000 เช็คดู
+
+Seeder: php artisan migrate:fresh --seed

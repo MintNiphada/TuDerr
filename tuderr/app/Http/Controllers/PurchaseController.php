@@ -39,7 +39,7 @@ class PurchaseController extends Controller
         ]);
 
         return redirect('/')->with('success','ส่งหลักฐานแล้ว รอแอดมินอนุมัติ');
-
+        
     }
 
 }

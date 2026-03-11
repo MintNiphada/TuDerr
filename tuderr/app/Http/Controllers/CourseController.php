@@ -10,7 +10,7 @@ class CourseController extends Controller
     // หน้าแสดงคอร์สทั้งหมด
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::where('status', 'published');
         return view('index', compact('courses'));
     }
 

@@ -1,27 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\Purchase;
 use App\Models\Course;
+use App\Models\Payment;
 use App\Models\User;
 
 class AdminController extends Controller
 {
-    public function dashboard()
+    public function index()
     {
         $totalUsers = User::count();
         $totalCourses = Course::count();
-        $pendingPayments = Purchase::where('status','pending')->count();
+        $pendingPayments = Payment::where('status','pending')->count();
 
-        $purchases = Purchase::latest()->get();
+        $payments = Payment::latest()->get();
 
         return view('admin.dashboard', compact(
             'totalUsers',
             'totalCourses',
             'pendingPayments',
-            'purchases'
+            'payments'
         ));
     }
 

@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Payment_approved extends Model
 {
     protected $fillable = [
-        'user_id',
-        'course_id',
-        'payment_date',
+        'approved_by',
+        'payment_id',
+        'approved_date',
+        'remarks',
+        'status',
     ];
 
     public function user()

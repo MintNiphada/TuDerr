@@ -69,7 +69,7 @@ text-decoration:none;
 
 <div class="container">
 
-<h1>My Courses</h1>
+<h1>คอร์สของฉัน</h1>
 
 <div class="courses">
 

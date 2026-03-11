@@ -17,4 +17,9 @@ class Course extends Model
         'price',
         'image'
     ];
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

@@ -127,6 +127,20 @@
             max-height: 80%;
             border-radius: 10px;
         }
+        .back-btn {
+            display: block;
+            margin-left: auto;
+            margin-bottom: 15px;
+            padding: 6px 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            background: #fafafa;
+            transition: all 0.2s ease;
+            width: fit-content;
+        }
     </style>
 
 </head>
@@ -136,6 +150,8 @@
     <div class="container">
 
         <div class="card">
+            <a href="/" class="back-btn">
+            < กลับ</a>
 
             <h1>รายละเอียดคำสั่งซื้อ</h1>
 
@@ -150,8 +166,8 @@
                 <img src="/payment_slips/{{ $payment->slip_photo }}" onclick="openPreview(this.src)">
             </div>
             @if ($payment_approved)
-                <p><b>สถานะการอนุมัติ :</b> {{ $payment_approved->status }}</p>
-                <p><b>ผู้อนุมัติ :</b> {{ $payment_approved->approved_by }}</p>
+                <p><b>สถานะการอนุมัติ :</b> @if($payment_approved->status === 'approved') อนุมัติ @else ปฏิเสธ @endif</p>
+                <p><b>ผู้อนุมัติ :</b> {{ $payment_approved->user->name }}</p>
                 <p><b>วันที่อนุมัติ :</b> {{ $payment_approved->approved_date }}</p>
                 <p><b>หมายเหตุ :</b> {{ $payment_approved->remarks }}</p>
             @else

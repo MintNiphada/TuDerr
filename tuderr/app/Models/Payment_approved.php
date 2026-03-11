@@ -16,7 +16,7 @@ class Payment_approved extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'approved_by');
     }
 
     public function course()

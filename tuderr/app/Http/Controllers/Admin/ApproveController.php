@@ -28,7 +28,7 @@ class ApproveController extends Controller
             'approved_by' => Auth::user()->id,
             'payment_id' => $payment->id,
             'approved_date' => now(),
-            'remarks' => $request->input('remarks'),
+            'remarks' => $request->input('remark'),
             'status' => $status,
         ]);
 

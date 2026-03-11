@@ -69,36 +69,23 @@
     <div class="container">
 
         <h1>คอร์สของฉัน</h1>
-
         <div class="courses">
+            @foreach($courses as $course)
 
             <div class="card">
 
-                <img src="/course_images/laravel.jpg">
+                <img src="{{ asset('course_images/' . $course->course->photo) }}" alt="Course Image">
 
                 <div class="card-body">
 
-                    <div class="title">Laravel Web Development</div>
+                    <div class="title">{{ $course->course->title }}</div>
 
-                    <a href="#" class="btn">Continue Learning</a>
+                    <a href="{{ route('student.mycourses.show', $course->course->id) }}" class="btn">Continue Learning</a>
 
                 </div>
 
             </div>
-
-            <div class="card">
-
-                <img src="/course_images/java.jpg">
-
-                <div class="card-body">
-
-                    <div class="title">Java Programming</div>
-
-                    <a href="#" class="btn">Continue Learning</a>
-
-                </div>
-
-            </div>
+            @endforeach
 
         </div>
 
